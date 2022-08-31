@@ -15,11 +15,11 @@ const displayPhones = (phones) => {
 
   if (phones.length === 0) {
     noPhone.classList.remove("d-none");
+  } else if (phones.length > 10) {
+    phones = phones.slice(0, 10);
+    const showAll = document.getElementById("show-all");
+    showAll.classList.remove("d-none");
   }
-
-  /* display only 15 phones */
-
-  phones = phones.slice(0, 15);
 
   phones.forEach((phone) => {
     const phoneDiv = document.createElement("div");
