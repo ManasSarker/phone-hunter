@@ -6,7 +6,20 @@ const loadPhones = async (search) => {
 };
 
 const displayPhones = (phones) => {
+  console.log("Phones are here", phones);
+
   const phoneContainer = document.getElementById("phone-container");
+  phoneContainer.innerHTML = ``;
+
+  const noPhone = document.getElementById("no-found-alert");
+
+  if (phones.length === 0) {
+    noPhone.classList.remove("d-none");
+  }
+
+  /* display only 15 phones */
+
+  phones = phones.slice(0, 15);
 
   phones.forEach((phone) => {
     const phoneDiv = document.createElement("div");
@@ -29,7 +42,7 @@ const displayPhones = (phones) => {
   });
 };
 
-loadPhones();
+//loadPhones();
 
 /*  Searching Function  */
 
